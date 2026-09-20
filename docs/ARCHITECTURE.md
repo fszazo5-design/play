@@ -5,23 +5,22 @@
 ## المجلدات الأساسية
 
 ```text
-client/
-  public/
-    manifest.json             # إعداد التثبيت كتطبيق PWA
-    service-worker.js         # cache-first shell للويب-فيو
-  src/
-    App.jsx                   # القشرة العامة، التنقل، وربط الحالة
-    main.jsx                  # نقطة تشغيل React وتسجيل service worker
-    index.css                 # نظام التصميم الداكن والنيون
-    pages/
-      Home.jsx                # لوحة التحكم الرئيسية
-      NotFound.jsx            # حالة الوحدات غير المنفذة بعد
-    hooks/
-      usePlayroomState.js     # الحالة، الجلسات، الحفظ، والنسخ الدورية
-    lib/
-      domain.js               # نموذج البيانات الأولي والمؤشرات
-      storage.js              # localStorage ونسخ JSON المحلية
-      sync.js                 # طابور المزامنة عند عودة الاتصال
+public/
+  manifest.json               # إعداد التثبيت كتطبيق PWA
+  service-worker.js           # cache-first shell للويب-فيو
+src/
+  App.jsx                     # القشرة العامة، التنقل، وربط الحالة
+  main.jsx                    # نقطة تشغيل React وتسجيل service worker
+  index.css                   # نظام التصميم الداكن والنيون
+  pages/
+    Home.jsx                  # لوحة التحكم الرئيسية
+    NotFound.jsx              # حالة الوحدات غير المنفذة بعد
+  hooks/
+    usePlayroomState.js       # الحالة، الجلسات، الحفظ، والنسخ الدورية
+  lib/
+    domain.js                 # نموذج البيانات الأولي والمؤشرات
+    storage.js                # localStorage ونسخ JSON المحلية
+    sync.js                   # طابور المزامنة عند عودة الاتصال
 
 shared/
   playroom-schema.js          # ثوابت وصيغة snapshot المشتركة للعميل والخادم
@@ -38,7 +37,7 @@ drizzle/
 
 ## مسار البيانات المحلي
 
-1. يبدأ التطبيق من `createDefaultState()` في `client/src/lib/domain.js`.
+1. يبدأ التطبيق من `createDefaultState()` في `src/lib/domain.js`.
 2. تتم قراءة الحالة من `localStorage` عند التشغيل.
 3. كل تعديل في `usePlayroomState` يحفظ الحالة فورًا ويضيف حدثًا إلى طابور المزامنة.
 4. يتم حفظ snapshot كامل كل 30 ثانية أو يدويًا من زر «التقاط نسخة الآن».
