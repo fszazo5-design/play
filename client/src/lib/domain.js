@@ -14,6 +14,7 @@ export function createDefaultState() {
       branchPhone: "+966 11 234 5678",
       taxNumber: "310123456700003",
       logoMark: "PX",
+      logoUrl: "",
       currency: "SAR",
       powerCostPerKWh: 0.42,
       autoCaptureIntervalSec: 30,

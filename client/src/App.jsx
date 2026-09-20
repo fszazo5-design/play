@@ -13,6 +13,7 @@ const navigation = [
   { id: "reservations", label: "الحجوزات", icon: CalendarClock },
   { id: "billing", label: "الفوترة والدفعات", icon: CreditCard },
   { id: "shifts", label: "تقارير الورديات", icon: BarChart3 },
+  { id: "settings", label: "إعدادات الفرع", icon: Settings2 },
 ];
 
 export default function App() {
