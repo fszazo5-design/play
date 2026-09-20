@@ -9,6 +9,11 @@ export function createDefaultState() {
   return {
     systemConfig: {
       branchId: "PLAYROOM-RYD-01",
+      branchName: "Playroom Riyadh · الفرع الرئيسي",
+      branchAddress: "طريق الملك فهد، حي العليا، الرياض",
+      branchPhone: "+966 11 234 5678",
+      taxNumber: "310123456700003",
+      logoMark: "PX",
       currency: "SAR",
       powerCostPerKWh: 0.42,
       autoCaptureIntervalSec: 30,
