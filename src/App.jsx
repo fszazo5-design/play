@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Check, Download, X } from "lucide-react";
 import Home from "./pages/Home.jsx";
-import ModulesPage from "./pages/ModulesPage.jsx";
+import ModulesPage, { modules } from "./pages/ModulesPage.jsx";
 import OperationsPage from "./pages/OperationsPage.jsx";
 import { usePlayroomState } from "./hooks/usePlayroomState.js";
 import { usePwaInstall } from "./hooks/usePwaInstall.js";
@@ -49,6 +49,12 @@ export default function App() {
     };
     return (<div className="app-shell" dir="rtl">
       <InstallPrompt />
+      <aside className="sidebar grid-sidebar">
+        <div className="brand-lockup"><div className="brand-mark"><span>PX</span></div><div><p className="eyebrow">CONTROL CENTER</p><h1>PLAYROOM<span>OS</span></h1></div></div>
+        <button type="button" className="branch-pill" onClick={() => setActiveView("settings")} aria-label="فتح إعدادات الفرع" title="إعدادات الفرع"><span className="pulse-dot"/><div><strong>{playroom.state.systemConfig.branchId}</strong><small>الفرع الرئيسي · متصل</small></div></button>
+        <nav className="side-nav" aria-label="شبكة صفحات النظام"><p className="nav-label">صفحات النظام</p><div className="nav-grid">{modules.map((item) => { const Icon = item.icon; const selected = activeView === item.id || (activeView === "stations" && item.id === "overview"); return <button type="button" aria-label={item.label} title={item.label} className={`nav-item ${selected ? "selected" : ""}`} onClick={() => setActiveView(item.id)} key={item.id}><Icon size={20} strokeWidth={selected ? 2.5 : 1.8}/><span>{item.label}</span>{item.id === "stations" && <b>{playroom.metrics.activeStations}</b>}{item.id === "inventory" && playroom.metrics.lowStockItems > 0 && <b className="nav-alert">{playroom.metrics.lowStockItems}</b>}</button>; })}</div></nav>
+        <div className="sidebar-footer"><div className="operator-card"><div className="avatar">م</div><div><strong>مشغل الصالة</strong><small>وردية المساء · #SHIFT-042</small></div><span className="status-indicator"/></div><p className="version-label">Playroom OS v0.2 · Offline-first</p></div>
+      </aside>
       <main className="main-content">{renderView()}</main>
     </div>);
 }

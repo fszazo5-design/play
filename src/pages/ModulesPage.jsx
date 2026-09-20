@@ -1,6 +1,6 @@
 import { ArrowRight, BarChart3, CalendarClock, CreditCard, LayoutDashboard, MonitorPlay, Package, Settings2, Sparkles, Trophy, Users } from "lucide-react";
 
-const modules = [
+export const modules = [
   { id: "overview", label: "نظرة عامة", description: "مؤشرات الصالة والإيرادات والمحطات", icon: LayoutDashboard, accent: "violet" },
   { id: "stations", label: "المحطات والجلسات", description: "تشغيل المحطات ومتابعة الجلسات", icon: MonitorPlay, accent: "cyan" },
   { id: "inventory", label: "المخزون والمبيعات", description: "الأصناف والمخزون ونقطة البيع", icon: Package, accent: "orange" },
