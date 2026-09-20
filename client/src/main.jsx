@@ -2,17 +2,13 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-
-createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+createRoot(document.getElementById("root")).render(<React.StrictMode>
     <App />
-  </React.StrictMode>,
-);
-
+  </React.StrictMode>);
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/service-worker.js").catch(() => {
-      // Offline storage still works when service-worker registration is unavailable.
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/service-worker.js").catch(() => {
+            // Offline storage still works when service-worker registration is unavailable.
+        });
     });
-  });
 }
