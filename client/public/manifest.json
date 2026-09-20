@@ -1,0 +1,12 @@
+{
+  "name": "Playroom OS",
+  "short_name": "Playroom OS",
+  "description": "Offline-first gaming playroom management system",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0c12",
+  "theme_color": "#0a0c12",
+  "icons": []
+}
