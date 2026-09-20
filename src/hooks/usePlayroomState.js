@@ -17,6 +17,10 @@ export function usePlayroomState() {
         window.addEventListener("offline", offline);
         return () => { window.clearInterval(interval); window.removeEventListener("online", online); window.removeEventListener("offline", offline); };
     }, [state.systemConfig.autoCaptureIntervalSec]);
+    useEffect(() => {
+        if (isOnline)
+            void flushSyncQueue();
+    }, [isOnline]);
     const updateState = useCallback((updater) => setState((current) => typeof updater === "function" ? updater(current) : updater), []);
     const captureNow = useCallback(() => { const snapshot = captureSnapshot(state, "manual"); if (snapshot)
         setLastSnapshotAt(snapshot.capturedAt); return snapshot; }, [state]);

@@ -47,6 +47,7 @@ drizzle/
 
 - نقل snapshot envelopes إلى جدول `playroom_snapshots` في Drizzle.
 - إضافة إجراءات tRPC مثل `playroom.snapshot.push` و`playroom.snapshot.latest`.
-- استبدال no-op في `flushSyncQueue` باستدعاء tRPC مع retry وbackoff.
+- يرسل `flushSyncQueue` طابور snapshots إلى Vercel Function في `/api/snapshots`، مع إبقاء العناصر الفاشلة محليًا لإعادة المحاولة.
+- تهيئة جدول `playroom_snapshots` في Neon عبر `sql/playroom_snapshots.sql`.
 - إضافة صفحات المحطات، المخزون، اللاعبين، الحجوزات، والبطولات بنفس القالب البصري.
 - إضافة اختبارات Vitest للتحقق من استعادة snapshot وحساب الفواتير وحل التعارض.
