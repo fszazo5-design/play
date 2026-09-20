@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Activity, ArrowUpLeft, BatteryCharging, BellRing, Camera, CheckCircle2, CircleDollarSign, Clock3, Coffee, Gamepad2, MoreHorizontal, Pause, Play, Plus, Radio, RefreshCw, ShoppingBag, Siren, Sparkles, TimerReset, TrendingUp, Wifi, WifiOff, Zap, } from "lucide-react";
+import { Activity, ArrowUpLeft, BatteryCharging, BellRing, Camera, CheckCircle2, CircleDollarSign, Clock3, Coffee, Gamepad2, Grid3X3, MoreHorizontal, Pause, Play, Plus, Radio, RefreshCw, ShoppingBag, Siren, Sparkles, TimerReset, TrendingUp, Wifi, WifiOff, Zap, } from "lucide-react";
 import { formatMoney, formatRelativeTime } from "../lib/domain.js";
 const statusLabels = {
     IDLE: "متاحة",
@@ -112,7 +112,7 @@ export default function Home({ state, lastSnapshotAt, isOnline, onCapture, onSta
           <p className="page-subtitle">تابع نبض الصالة لحظة بلحظة واتخذ القرار قبل أن يطلبه اللاعبون.</p>
         </div>
         <div className="topbar-actions">
-          <div className={`sync-chip ${isOnline ? "online" : "offline"}`}><span>{isOnline ? <Wifi size={14}/> : <WifiOff size={14}/>}</span>{isOnline ? "متصل · محلي" : "وضع عدم الاتصال"}</div>
+          <button type="button" className="outline-button page-grid-button" onClick={onOpenModules}><Grid3X3 size={14}/> كل الصفحات</button><div className={`sync-chip ${isOnline ? "online" : "offline"}`}><span>{isOnline ? <Wifi size={14}/> : <WifiOff size={14}/>}</span>{isOnline ? "متصل · محلي" : "وضع عدم الاتصال"}</div>
           <button type="button" className="icon-button notification-button" aria-label="الإشعارات"><BellRing size={18}/><i /></button>
           <div className="live-clock"><span>السبت، 20 سبتمبر 2026</span><strong>{new Date(now).toLocaleTimeString("ar-SA", { hour: "2-digit", minute: "2-digit" })}</strong></div>
         </div>
