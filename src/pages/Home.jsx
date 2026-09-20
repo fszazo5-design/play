@@ -88,7 +88,7 @@ function StationCard({ station, currency, onStartSession, onPauseSession, onFini
       <div className="station-footer"><span>التشغيل التالي للصيانة</span><b>{station.maintenance.nextDeepCleanDueHours}س</b></div>
     </article>);
 }
-export default function Home({ state, lastSnapshotAt, isOnline, onCapture, onStartSession, onPauseSession, onFinishSession }) {
+export default function Home({ state, lastSnapshotAt, isOnline, onCapture, onStartSession, onPauseSession, onFinishSession, onOpenModules }) {
     const [now, setNow] = useState(Date.now());
     useEffect(() => {
         const timer = window.setInterval(() => setNow(Date.now()), 1000);
@@ -147,7 +147,7 @@ export default function Home({ state, lastSnapshotAt, isOnline, onCapture, onSta
         <div className="stations-panel panel-card">
           <div className="section-heading">
             <div><span className="section-kicker">FLOOR MAP / 01</span><h3>المحطات والجلسات</h3></div>
-            <div className="heading-tools"><span className="mini-legend"><i className="legend-dot active"/> نشطة</span><span className="mini-legend"><i className="legend-dot idle"/> متاحة</span><button type="button" className="outline-button"><Plus size={15}/> إضافة محطة</button></div>
+            <div className="heading-tools"><span className="mini-legend"><i className="legend-dot active"/> نشطة</span><span className="mini-legend"><i className="legend-dot idle"/> متاحة</span><button type="button" className="outline-button" onClick={onOpenModules}><Sparkles size={15}/> شبكة الوحدات</button><button type="button" className="outline-button"><Plus size={15}/> إضافة محطة</button></div>
           </div>
           <div className="stations-grid">
             {state.stations.map((station) => <StationCard key={station.id} station={station} currency={state.systemConfig.currency} onStartSession={onStartSession} onPauseSession={onPauseSession} onFinishSession={onFinishSession}/>)}
