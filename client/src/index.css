@@ -102,3 +102,7 @@ button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
 @media (max-width: 980px) { .settings-layout { grid-template-columns: 1fr; }.settings-preview { max-width: none; } }
 @media (max-width: 680px) { .settings-footer { align-items: stretch; flex-direction: column; }.logo-editor { align-items: flex-start; flex-direction: column; }.logo-controls { width: 100%; } }
 @media print { .invoice-logo img { width: 100%; height: 100%; object-fit: contain; } }
+
+
+/* Drag and drop logo upload */
+.logo-dropzone { display: flex; align-items: center; gap: 9px; width: 100%; padding: 11px; border: 1px dashed rgba(57,214,232,.35); border-radius: 10px; color: var(--cyan); background: rgba(57,214,232,.035); cursor: pointer; transition: border-color .18s var(--ease-out), background .18s var(--ease-out), transform .18s var(--ease-out); }.logo-dropzone:hover, .logo-dropzone.dragging { border-color: var(--cyan); background: rgba(57,214,232,.11); transform: translateY(-1px); }.logo-dropzone input { display: none; }.dropzone-icon { width: 30px; height: 30px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 8px; background: rgba(57,214,232,.12); }.logo-dropzone strong, .logo-dropzone small { display: block; }.logo-dropzone strong { color: #dceaf0; font-size: 10px; }.logo-dropzone small { color: #6f8290; font-size: 8px; margin-top: 4px; }.logo-error { color: var(--red); font-size: 9px; margin: 7px 0 0; }
